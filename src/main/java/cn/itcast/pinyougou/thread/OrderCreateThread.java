@@ -23,6 +23,7 @@ public class OrderCreateThread  implements  Runnable{
 
     @Override
     public void run() {
+        // 从队列中获取订单
         OrderRecord orderRecord = (OrderRecord) redisTemplate.boundListOps(OrderRecord.class.getSimpleName()).rightPop();
         if(null != orderRecord){
             TbSeckillGoods seckillGoods = (TbSeckillGoods) redisTemplate
